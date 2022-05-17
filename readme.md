@@ -11,11 +11,12 @@ golang 中可以直接操作的最小内存单位为 byte（8 bit），如 bool�
 bm := NewBitmap(10) 
 bm.Add(15)
 bm.Add(0)
-fmt.Println(bm.Has(0))
-fmt.Println(bm.Has(1))
+fmt.Println(bm.Has(0)) // true
+fmt.Println(bm.Has(1)) // false
+fmt.Println(bm.Has(15)) // false
 fmt.Println(bm)
 bm.Del(0)
-fmt.Println(bm.Has(0))
+fmt.Println(bm.Has(0)) // false
 fmt.Println(bm)
 ```
 
@@ -27,7 +28,10 @@ fmt.Println(bm)
 ### (b *Bitmap) Add(num int) bool
 往 bitmap 中添加一个数字，返回值表示是否添加成功（长度足够一定会成功）
 
-### (b *Bitmap) Del(num int) bool bool
+### (b *Bitmap) Has(num int) bool
+从 bitmap 中查找一个数字，返回值表示是否存在（不在长度范围内一定不存在）
+
+### (b *Bitmap) Del(num int) bool
 从 bitmap 中删除一个数字，返回值表示是否删除成功（长度足够一定会成功）
 
 ### (b *Bitmap) Len() int
