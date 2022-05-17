@@ -28,6 +28,11 @@ func TestBitmap_Add(t *testing.T) {
 			fields: fields{len: 8},
 			args:   args{num: 10},
 			want:   false,
+		}, {
+			name:   "can't add",
+			fields: fields{len: 8},
+			args:   args{num: 8},
+			want:   false,
 		},
 	}
 	for _, tt := range tests {
@@ -64,6 +69,11 @@ func TestBitmap_Del(t *testing.T) {
 			fields: fields{len: 8},
 			args:   args{num: 10},
 			want:   false,
+		}, {
+			name:   "can't del",
+			fields: fields{len: 8},
+			args:   args{num: 8},
+			want:   false,
 		},
 	}
 	for _, tt := range tests {
@@ -99,6 +109,11 @@ func TestBitmap_Has(t *testing.T) {
 			name:   "can't has",
 			fields: fields{len: 8},
 			args:   args{num: 10},
+			want:   false,
+		}, {
+			name:   "can't has",
+			fields: fields{len: 8},
+			args:   args{num: 8},
 			want:   false,
 		},
 	}
@@ -161,7 +176,7 @@ func TestBitmap_LenRaw(t *testing.T) {
 			name:   "len raw ok 02",
 			fields: fields{len: 7},
 			want:   1,
-		},{
+		}, {
 			name:   "len raw ok 03",
 			fields: fields{len: 10},
 			want:   2,
